@@ -1,0 +1,393 @@
+
+<!--index.php路由页面代码-->
+<!--function.php网站函数等内容-->
+<!--header.php网站头部代码-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>夏创云鲁班锤零代码 Lumena _零代码开发平台_可视化开发平台-夏创</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="夏创云鲁班锤，无代码系统搭建平台，轻松搭建网站前端、软件前端、手机APP前端、平板APP前端、小程序前端，通过学习可以快速上手后端开发，集成众多开发语言。可视化开发后任意选择后端语言导出程序。">
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<!-- BOOTSTRAP CSS -->>
+
+		<style>
+		.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+		.navbar {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				z-index: 1;
+				background-color: white;
+			}
+			.navbar-nav li a {
+  color: black !important;
+  font-family: "Microsoft Yahei", sans-serif;
+}
+
+			.navbar-nav>li:not(:last-child) {
+				margin-left: 15px;
+			}
+
+			.navbar-nav>li>a:hover {
+				color: white;
+				transform: translateY(-3px);
+				font-weight: 900;
+				font-size: 20px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand">
+					<img src="https://lumena.satri.cn/upload/img/logo.png" alt="鲁班锤 Lumena" width="217" height="55">
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-5">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="lubanxueyuan" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								鲁班学院
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="https://lumena.satri.cn/page/mag.php" target="_blank">视频教程</a></li>
+								<li><a class="dropdown-item" href="#">文档中心</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="#">夏创云计算开发大赛暨第一届智行杯端云协同技术大赛</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">模板中心</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">客户案例</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="hezuo" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								合作
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#">专家库</a></li>
+								<li><a class="dropdown-item" href="#">成为鲁班锤专家</a></li>
+								<li><a class="dropdown-item" href="#">成为生态伙伴</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="huodongshalong" role="button"
+								data-bs-toggle="dropdown" aria-expanded="false">
+								活动 | 沙龙
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="#">活动1</a></li>
+								<li><a class="dropdown-item" href="#">活动2</a></li>
+							</ul>
+						</li>
+					</ul>
+					<div class="d-flex">
+					    <a class="btn btn-outline-primary me-2" href="#" role="button" id="login-btn">注册 | 登录</a>					</div>
+				</div>
+			</div>
+		</nav>
+    <script>
+   function showLoginModal() {
+  // 创建一个模态框元素
+  let modal = document.createElement("div");
+  modal.className = "modal";
+  modal.innerHTML = `
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">登录</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name='login-form' action='index.php' method='POST'>
+            <div class="mb-3">
+              <label for="account" class="form-label">夏创联合账号</label>
+              <input type="text" class="form-control" name='account' id="account" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">密码</label>
+              <div class="input-group">
+                <input type="password" class="form-control" name='password' id="password" required>
+            </div>
+            <small class="form-text text-muted">密码可以随时在下方二维码对应的小程序中修改。</small>
+            </div>
+            <center>
+              <input type="submit" class="btn btn-primary" style="width:120px;"></input>
+            </center>
+          </form>
+          <br>
+          <div style="text-align:center;">
+            <img src="https://lumena.satri.cn/upload/img/satri_mini.jpg" alt="QR code" width="200px" height="200px">
+            <p>请使用微信扫描上方二维码获取夏创联合账号，<br>同一微信仅能获取一个无期限联合账号。</p>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // 将模态框添加到页面中
+  document.body.appendChild(modal);
+
+  // 获取输入框元素
+//   let accountInput = document.getElementById("account");
+//   let passwordInput = document.getElementById("password");
+
+  // 添加表单提交事件
+//   let loginBtn = modal.querySelector("a.btn-primary");
+//   loginBtn.addEventListener("click", function(event) {
+    // event.preventDefault();
+
+    // 获取账号和密码
+    // let account = accountInput.value;
+    // let password = passwordInput.value;
+
+    // 发送 AJAX 请求
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("POST", "api/login.php");
+//   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   xhr.onload = function() {
+    // if (xhr.status === 200) {
+      // 登录成功，保存 session
+    //   sessionStorage.setItem("isLoggedIn", "true");
+      // 隐藏遮罩层
+    //   modalElement.hide();
+      // 关闭模态框
+    //   modal.remove();
+    // } else {
+    //   alert("登录失败，请检查账号和密码是否正确。");
+    // }
+//   };
+//   xhr.send("account=" + encodeURIComponent(account) + "&password=" + encodeURIComponent(password));
+//   });
+
+  // 显示模态框
+  let modalElement = new bootstrap.Modal(modal);
+  modalElement.show();
+}
+
+let loginBtn = document.getElementById("login-btn");
+loginBtn.addEventListener("click", showLoginModal);
+
+
+</script>
+<!--layout.php网站主体内容-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts-gl/2.0.8/echarts-gl.min.js"></script>
+<div class="container-fluid h-100 d-flex align-items-center justify-content-center" style="position: relative;">
+    <div class="text-center">
+        <!-- 创建包含地球的 div 元素 -->
+        <div id="myChart" style="width: 600px; height: 400px; position: absolute; top: 0; right: 0;"></div>
+        <script>
+            // 使用基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('myChart'));
+
+            // 配置图表选项
+            var option = {
+                globe: {
+                    baseTexture: 'upload/img/earth.jpg',
+                    heightTexture: 'upload/img/bathymetry_bw_composite_4k.jpg',
+                    shading: 'realistic',
+                    light: {
+                        main: {
+                            intensity: 5,
+                            shadow: true,
+                            alpha: 30,
+                            beta: 30
+                        },
+                        ambient: {
+                            intensity: 0.5
+                        }
+                    },
+                    globeRadius: 100
+                },
+                series: []
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+
+            // 让地球自动旋转
+            setInterval(function () {
+                myChart.dispatchAction({
+                    type: 'rotate',
+                    dx: 1,
+                    dy: 1
+                });
+            }, 100);
+        </script>
+        <h1 class="display-4 mb-3" style="letter-spacing: 2px;">
+            <!-- 在这里创建一个容器来放置图表 -->
+            <div id="newChart" style="width: 800px; height: 100px;"></div>
+        </h1>
+        <h2 class="h5 mb-5">鲁班锤零代码系统搭建平台，轻松搭建系统</h2>
+        <!--<div id="login">-->
+        <!--<a href="#" class="btn btn-lg btn-primary">立即登录</a>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div class="video-container">
+    <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay loop muted></video>
+</div>
+
+<script>
+    // 创建一个 echarts 实例
+    const newChart = echarts.init(document.getElementById('newChart'));
+
+    // 设置图表的配置项和数据
+    const newOption = {
+        graphic: {
+            elements: [
+                {
+                    type: 'text',
+                    left: 'center',
+                    top: 'center',
+                    style: {
+                        text: '夏创云鲁班锤Lumena',
+                        fontSize: 60,
+                        fontWeight: 'bold',
+                        lineDash: [0, 200],
+                        lineDashOffset: 0,
+                        fill: 'transparent',
+                        stroke: '#000',
+              lineWidth: 1
+            },
+            keyframeAnimation: {
+              duration: 3000,
+              loop: false,
+              keyframes: [
+                {
+                  percent: 0.7,
+                  style: {
+                    fill: 'transparent',
+                    lineDashOffset: 200,
+                    lineDash: [200, 0]
+                  }
+                },
+                {
+                  percent: 0.8,
+                  style: {
+                    fill: 'transparent'
+                  }
+                },
+                {
+                  percent: 1,
+                  style: {
+                    fill: 'black'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    };
+
+    // 将配置项设置到图表实例中并渲染图表
+    newChart.setOption(newOption);
+  </script>
+<!--footer.php网站尾部信息（页脚）-->
+<!-- 引入 jQuery 库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JQUERY JS -->
+
+	</body>
+</html>
+<footer class="bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-4">葫芦岛市夏创物联网科技有限公司</h5>
+
+        <p>
+          公司描述或公司介绍
+        </p>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">联系我们</h5>
+
+        <ul class="list-unstyled mb-0 my-4">
+          <li>
+            <a>联系微信：xcwlwkj</a>
+          </li>
+          <li>
+            <a>电子邮箱：boss@satri.cn</a>
+          </li>
+          <li>
+            <a href='https://satri.cn'>夏创官网：satri.cn</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">服务</h5>
+
+        <ul class="list-unstyled my-4">
+          <li>
+            <a href="#!" class="text-dark">鲁班学院</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">服务条款</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">隐私条款</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">新加的一列</h5>
+
+        <ul class="list-unstyled my-4">
+          <li>
+            <a href="#!" class="text-dark">新选项1</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">新选项2</a>
+          </li>
+          <li>
+            <a href="#!" class="text-dark">新选项3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    版权 © 2019- <a class="text-dark" href="https://satri.cn">夏创科技</a>: 版权所有
+  </div>
+</footer>
